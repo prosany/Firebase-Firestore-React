@@ -1,6 +1,6 @@
 import "./App.css";
 import React, { useEffect, useState } from "react";
-import ListLaptops from "./components/ListLaptops";
+// import ListLaptops from "./components/ListLaptops";
 import { collection, getDocs } from "firebase/firestore";
 import { db } from "./lib/InitFirebase";
 import AddLaptop from "./components/AddLaptop";
@@ -9,6 +9,7 @@ import RealtimeList from "./components/RealtimeList";
 
 function App() {
   const [laptops, setLaptops] = useState([]);
+  console.log("📌 | App | laptops", laptops);
 
   // Get Laptops from Firestore
   const loadLaptops = () => {
