@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { collection, addDoc } from "firebase/firestore";
 import { db } from "../lib/InitFirebase";
+import { getDate } from "../helpers/getDate";
 
 export default function AddLaptop() {
   const [name, setName] = useState("");
@@ -9,7 +10,7 @@ export default function AddLaptop() {
     e.preventDefault();
     if (name === "") return;
     const laptopsRef = collection(db, "laptops");
-    addDoc(laptopsRef, { name })
+    addDoc(laptopsRef, { name, created_On: getDate() })
       .then((res) => {
         // console.log(res);
       })

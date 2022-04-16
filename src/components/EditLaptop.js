@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { updateDoc, doc, setDoc } from "firebase/firestore";
 import { db } from "../lib/InitFirebase";
+import { getDate } from "../helpers/getDate";
 
 export default function EditLaptop() {
   const [name, setName] = useState("");
@@ -23,7 +24,7 @@ export default function EditLaptop() {
     e.preventDefault();
     if (name === "" && id === "") return;
     const laptopRef = doc(db, "laptops", id);
-    setDoc(laptopRef, { name })
+    setDoc(laptopRef, { name, created_On: getDate() })
       .then((res) => {
         console.log(res);
       })
