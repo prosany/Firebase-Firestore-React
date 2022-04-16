@@ -29,7 +29,7 @@ export default function RealtimeList() {
     return () => {
       unsubscribe();
     };
-  }, []);
+  }, [laptopsLength]);
 
   const deleteLaptop = (id) => {
     const laptopRef = doc(db, "laptops", id);
